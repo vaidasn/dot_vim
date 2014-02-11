@@ -41,6 +41,9 @@ if filereadable($VIMRUNTIME . "/mswin.vim")
     "set selectmode=""
 endif
 
+" Use <Alt-/> for autocompletion
+map! ¯ <C-N>
+
 autocmd FileType gitcommit set spell spelllang=en_us
 autocmd FileType java set number
 if has("gui_running")
