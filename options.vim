@@ -1,9 +1,9 @@
 if has("gui_gtk2")
     set showtabline=2
-    set guifont=Liberation\ Mono\ 9
+    set guifont=Liberation\ Mono\ 9,Monospace\ 9
 elseif has("gui_win32")
     set showtabline=2
-    set guifont=Consolas:h11:cANSI
+    set guifont=Consolas:h11:cDEFAULT,Lucida_Console:h10:cDEFAULT
 endif
 if (has("win32") || has("win64")) && !has("gui_running")
     set background=dark
