@@ -13,7 +13,7 @@ if has('mouse')
 endif
 
 set encoding=utf-8
-set fileencoding=utf-8
+"set fileencoding=utf-8
 
 set history=100		" keep 100 lines of command line history
 set showcmd		    " display incomplete commands
