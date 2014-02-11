@@ -5,7 +5,7 @@ elseif has("gui_win32")
     set showtabline=2
     set guifont=Consolas:h11:cANSI
 endif
-if has("win32") || has("win64") && !has("gui_running")
+if (has("win32") || has("win64")) && !has("gui_running")
     set background=dark
 endif
 if has('mouse')
@@ -34,8 +34,10 @@ set softtabstop=4   " Sets the number of columns for a TAB
 
 set expandtab       " Expand TABs to spaces
 
-source $VIMRUNTIME/mswin.vim
-"set selectmode=""
+if filereadable($VIMRUNTIME . "/mswin.vim")
+    source $VIMRUNTIME/mswin.vim
+    "set selectmode=""
+endif
 
 autocmd FileType gitcommit set spell spelllang=en_us
 autocmd FileType java set number
