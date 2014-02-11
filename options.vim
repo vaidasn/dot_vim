@@ -1,9 +1,11 @@
 if has("gui_gtk2")
-    set showtabline=2
     set guifont=Liberation\ Mono\ 9,Monospace\ 9
 elseif has("gui_win32")
-    set showtabline=2
     set guifont=Consolas:h11:cDEFAULT,Lucida_Console:h10:cDEFAULT
+endif
+if has("gui_running")
+    set showtabline=2
+    an 9999.10 &Help.&Overview<Tab><F1>	:tab help<CR>    "Open help in new tab
 endif
 if (has("win32") || has("win64")) && !has("gui_running")
     set background=dark
@@ -41,6 +43,11 @@ endif
 
 autocmd FileType gitcommit set spell spelllang=en_us
 autocmd FileType java set number
+if has("gui_running")
+    let g:sh_fold_enabled=1
+    set foldlevelstart=99
+    autocmd FileType sh setlocal foldcolumn=1
+endif
 "highlight clear SpellBad
 "highlight SpellBad cterm=underline
 highlight SpellBad ctermfg=black
@@ -48,4 +55,9 @@ highlight SpellCap ctermfg=white
 highlight SpellRare ctermfg=black
 highlight SpellLocal ctermfg=black
 
-start
+function! AfterBufEnter()
+    if !&ro
+        start
+    endif
+endfunction
+autocmd BufEnter * call AfterBufEnter()
