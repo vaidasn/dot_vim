@@ -5,7 +5,11 @@ elseif has("gui_win32")
 endif
 if has("gui_running")
     set showtabline=2
-    an 9999.10 &Help.&Overview<Tab><F1>	:tab help<CR>    "Open help in new tab
+    "Open help in new tab
+    an 9999.10 &Help.&Overview<Tab><F1>	:tab help<CR>
+    noremap <F1> :tab help<CR>
+    inoremap <F1> <C-O>:tab help<CR>
+    cnoremap <F1> <C-C>:tab help<CR>
 endif
 if (has("win32") || has("win64")) && !has("gui_running")
     set background=dark
@@ -58,9 +62,19 @@ highlight SpellCap ctermfg=white
 highlight SpellRare ctermfg=black
 highlight SpellLocal ctermfg=black
 
-function! AfterBufEnter()
-    if !&ro
-        start
+function! <SID>AfterBufEnter()
+    if !expand("<afile>")
+        let g:startinsert_on_focus = 1
+    elseif !&ro
+        let g:startinsert_on_focus = 0
+        startinsert
     endif
 endfunction
-autocmd BufEnter * call AfterBufEnter()
+function! <SID>AfterFocusGained()
+    if exists("g:startinsert_on_focus") && g:startinsert_on_focus
+        startinsert
+        let g:startinsert_on_focus = 0
+    endif
+endfunction
+autocmd BufEnter * call <SID>AfterBufEnter()
+autocmd FocusGained * call <SID>AfterFocusGained()
