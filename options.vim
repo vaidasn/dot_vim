@@ -46,7 +46,7 @@ if filereadable($VIMRUNTIME . "/mswin.vim")
 endif
 
 " Use <Alt-/> for autocompletion
-map! ¯ <C-N>
+inoremap <M-/> <C-N>
 
 autocmd FileType gitcommit set spell spelllang=en_us
 autocmd FileType java set number
@@ -55,6 +55,30 @@ if has("gui_running")
     set foldlevelstart=99
     autocmd FileType sh setlocal foldcolumn=1
 endif
+if has("autocmd") && exists("+omnifunc")
+    autocmd Filetype *
+                \	if &omnifunc == "" |
+                \		setlocal omnifunc=syntaxcomplete#Complete |
+                \	endif
+    function! Auto_complete_string()
+        if pumvisible()
+            return "\<C-n>"
+        else
+            return "\<C-x>\<C-o>\<C-r>=Auto_complete_opened()\<CR>"
+        end
+    endfunction
+
+    function! Auto_complete_opened()
+        if pumvisible()
+            return "\<Down>"
+        end
+        return ""
+    endfunction
+
+    inoremap <expr> <Nul> Auto_complete_string()
+    inoremap <expr> <C-Space> Auto_complete_string()
+endif
+
 "highlight clear SpellBad
 "highlight SpellBad cterm=underline
 highlight SpellBad ctermfg=black
