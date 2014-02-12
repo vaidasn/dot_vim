@@ -48,7 +48,8 @@ endif
 " Use <Alt-/> for autocompletion
 inoremap <M-/> <C-N>
 
-autocmd FileType gitcommit set spell spelllang=en_us
+autocmd FileType gitcommit,gitrebase set spell spelllang=en_us
+autocmd BufEnter COMMIT_EDITMSG,ADD_EDIT.patch,addp-hunk-edit.diff,git-rebase-todo call setpos('.', [0, 1, 1, 0])
 autocmd FileType java set number
 if has("gui_running")
     let g:sh_fold_enabled=1
