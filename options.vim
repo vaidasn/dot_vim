@@ -47,6 +47,11 @@ endif
 
 " Use <Alt-/> for autocompletion
 inoremap <M-/> <C-N>
+" <Ctrl-F6> switches windows
+inoremap <C-F6> <C-O><C-W>p
+noremap <C-F6> <C-W>p
+" <Shit-Tab> unshifts tab
+inoremap <S-Tab> <C-O><<
 
 autocmd FileType gitcommit,gitrebase set spell spelllang=en_us
 autocmd BufEnter COMMIT_EDITMSG,ADD_EDIT.patch,addp-hunk-edit.diff,git-rebase-todo call setpos('.', [0, 1, 1, 0])
@@ -58,9 +63,9 @@ if has("gui_running")
 endif
 if has("autocmd") && exists("+omnifunc")
     autocmd Filetype *
-                \	if &omnifunc == "" |
-                \		setlocal omnifunc=syntaxcomplete#Complete |
-                \	endif
+                \   if &omnifunc == "" |
+                \       setlocal omnifunc=syntaxcomplete#Complete |
+                \   endif
     function! Auto_complete_string()
         if pumvisible()
             return "\<C-n>"
@@ -87,19 +92,25 @@ highlight SpellCap ctermfg=white
 highlight SpellRare ctermfg=black
 highlight SpellLocal ctermfg=black
 
-function! <SID>AfterBufEnter()
-    if !expand("<afile>")
-        let g:startinsert_on_focus = 1
-    elseif !&ro
-        let g:startinsert_on_focus = 0
-        startinsert
+" Workaround leaving insert mode during command exection
+" Fixes editing files using server with --remote* options
+function! <SID>AfterInsertLeave()
+    if exists("b:insert_enter_time") && b:insert_enter_time == localtime()
+        set insertmode
+        let b:reset_insertmode = 1
+        let b:insert_enter_time = 0
     endif
 endfunction
-function! <SID>AfterFocusGained()
-    if exists("g:startinsert_on_focus") && g:startinsert_on_focus
+function! <SID>AfterInsertEnter()
+    if exists("b:reset_insertmode") && b:reset_insertmode
+        let b:reset_insertmode = 0
+        set noinsertmode
         startinsert
-        let g:startinsert_on_focus = 0
     endif
+    let b:insert_enter_time = &insertmode ? 0: localtime()
 endfunction
-autocmd BufEnter * call <SID>AfterBufEnter()
-autocmd FocusGained * call <SID>AfterFocusGained()
+autocmd InsertLeave * cal <SID>AfterInsertLeave()
+autocmd InsertEnter * cal <SID>AfterInsertEnter()
+
+autocmd BufReadPost,BufNewFile * if !&ro | startinsert | endif
+"autocmd StdinReadPost * startinsert
