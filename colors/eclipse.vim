@@ -20,15 +20,16 @@ highlight Search    gui=none      guifg=#544060 guibg=#f0c0ff ctermbg=1
 " Messages
 highlight ErrorMsg   gui=none guifg=#f8f8f8 guibg=#4040ff
 highlight WarningMsg gui=none guifg=#f8f8f8 guibg=#4040ff
-highlight ModeMsg    gui=none guifg=#d06000 guibg=bg
+" highlight ModeMsg    gui=none guifg=#d06000 guibg=bg
+highlight ModeMsg    gui=none guifg=#9a8351 guibg=bg
 highlight MoreMsg    gui=none guifg=#0090a0 guibg=bg
 highlight Question   gui=none guifg=#8000ff guibg=bg
 
 " Split area
-highlight StatusLine   gui=none guifg=#ffffff guibg=#4570aa cterm=bold       ctermbg=blue     ctermfg=white
-highlight StatusLineNC gui=none guifg=#ffffff guibg=#75a0da cterm=none       ctermfg=darkgrey ctermbg=blue
-highlight VertSplit    gui=none guifg=#f8f8f8 guibg=#904838 ctermfg=darkgrey cterm=none       ctermbg=blue
-highlight WildMenu     gui=none guifg=#f8f8f8 guibg=#ff3030
+highlight StatusLine   gui=none guifg=#f1f9fe guibg=#45ade7 cterm=bold       ctermbg=blue     ctermfg=white
+highlight StatusLineNC gui=none guifg=#000000 guibg=#d6d2d0 cterm=none       ctermfg=darkgrey ctermbg=blue
+highlight VertSplit    gui=none guifg=#f8f8f8 guibg=#aea6a3 ctermfg=darkgrey cterm=none       ctermbg=blue
+highlight WildMenu     gui=none guifg=#201c1b guibg=#a0dcff
 
 " Diff
 highlight DiffText   gui=none guifg=red   guibg=#ffd0d0 cterm=bold    ctermbg=5  ctermfg=3
@@ -37,9 +38,9 @@ highlight DiffDelete gui=none guifg=bg    guibg=#e7e7ff ctermbg=black
 highlight DiffAdd    gui=none guifg=blue  guibg=#e7e7ff ctermbg=green cterm=bold
 
 " Cursor
-highlight Cursor   gui=none guifg=#ffffff guibg=#0080f0
-highlight lCursor  gui=none guifg=#ffffff guibg=#8040ff
-highlight CursorIM gui=none guifg=#ffffff guibg=#8040ff
+" highlight Cursor   gui=none guifg=#ffffff guibg=#0080f0
+" highlight lCursor  gui=none guifg=#ffffff guibg=#8040ff
+" highlight CursorIM gui=none guifg=#ffffff guibg=#8040ff
 
 " Fold
 highlight Folded     gui=none guifg=#804030 guibg=#fff0d0 ctermbg=black ctermfg=black cterm=bold
@@ -57,7 +58,7 @@ highlight LineNr     gui=none guifg=#6b6b6b guibg=#eeeeee
 highlight NonText    gui=none guifg=#707070 guibg=#e7e7e7
 highlight SpecialKey gui=none guifg=#c0c0c0 guibg=bg      cterm=none       ctermfg=4
 highlight Title      gui=bold guifg=#0033cc guibg=bg
-highlight Visual     gui=none guifg=#804020 guibg=#ffc0a0 ctermfg=DarkCyan
+highlight Visual     gui=none guifg=#ffffff guibg=#43ace8 ctermfg=DarkCyan
 
 " Syntax group
 highlight Comment    gui=none guifg=#236e25 guibg=bg      ctermfg=2
@@ -88,5 +89,4 @@ if !has("gui_running")
     hi link SpecialComment Special
     hi link Debug          Special
 endif
-
 " vim:ff=unix:
