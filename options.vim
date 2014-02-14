@@ -52,10 +52,15 @@ inoremap <C-F6> <C-O><C-W>p
 noremap <C-F6> <C-W>p
 " <Shit-Tab> unshifts tab
 inoremap <S-Tab> <C-O><<
+" Use <Alt-.> and <Alt-,> for quick list (search result) navigation
+inoremap <M-,> <C-O>:cprevious<CR>
+noremap <M-,> :cprevious<CR>
+inoremap <M-.> <C-O>:cnext<CR>
+noremap <M-.> :cnext<CR>
 
-autocmd FileType gitcommit,gitrebase set spell spelllang=en_us
+autocmd FileType gitcommit,gitrebase setlocal spell spelllang=en_us
 autocmd BufEnter COMMIT_EDITMSG,ADD_EDIT.patch,addp-hunk-edit.diff,git-rebase-todo call setpos('.', [0, 1, 1, 0])
-autocmd FileType java set number
+autocmd FileType java setlocal number
 if has("gui_running")
     let g:sh_fold_enabled=1
     set foldlevelstart=99
