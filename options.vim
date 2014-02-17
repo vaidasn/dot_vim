@@ -55,16 +55,28 @@ inoremap <M-/> <C-N>
 " <Ctrl-F6> switches windows
 inoremap <C-F6> <C-O><C-W>p
 noremap <C-F6> <C-W>p
-" <Shit-Tab> unshifts tab
+" <Tab> increases indent and <Shit-Tab> decreases indent
 inoremap <S-Tab> <C-O><<
+vnoremap <S-Tab> <gv
+nnoremap <S-Tab> <<
+vnoremap <Tab> >gv
+nnoremap <Tab> >>
 " Use <Alt-.> and <Alt-,> for quick list (search result) navigation
 inoremap <M-,> <C-O>:cprevious<CR>
 noremap <M-,> :cprevious<CR>
 inoremap <M-.> <C-O>:cnext<CR>
 noremap <M-.> :cnext<CR>
 " Use <Ctrl-F>, <Ctrl-K>, and <F3> for searching
-inoremap <C-F> <C-O>/
-noremap <C-F> /
+if has("win32")  || has("win16") || has("gui_gtk")
+    inoremap <C-F> <C-O>::promptfind<CR>
+    noremap <C-F> :promptfind<CR>
+    vnoremap <C-F> y:promptfind <C-R>=substitute(@", "[\r\n]", '\\n', 'g')<CR><CR>
+else
+    inoremap <C-F> <C-O>/
+    noremap <C-F> /
+endif
+inoremap <C-?> <C-O>/
+noremap <C-?> /
 inoremap <F3> <C-O>N
 noremap <F3> N
 inoremap <C-K> <C-O>*
