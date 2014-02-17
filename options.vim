@@ -81,6 +81,13 @@ inoremap <F3> <C-O>N
 noremap <F3> N
 inoremap <C-K> <C-O>*
 noremap <C-K> *
+" <Ctrl-Enter> jums to tag, <Alt-Right>/<Alt-Left> goes forwad/backward in the jump list
+noremap <C-CR> <C-]>
+inoremap <C-CR> <C-O><C-]>
+noremap <M-Right> <C-I>
+inoremap <M-Right> <C-O><C-I>
+noremap <M-Left> <C-O>
+inoremap <M-Left> <C-O><C-O>
 
 autocmd FileType gitcommit,gitrebase setlocal spell spelllang=en_us
 autocmd BufEnter COMMIT_EDITMSG,ADD_EDIT.patch,addp-hunk-edit.diff,git-rebase-todo call setpos('.', [0, 1, 1, 0])
