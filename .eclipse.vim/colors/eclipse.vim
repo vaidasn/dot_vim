@@ -57,12 +57,11 @@ highlight PMenuThumb ctermbg=white ctermfg=red
 
 " Other
 highlight Directory  gui=none guifg=#7050ff guibg=bg
-highlight LineNr     gui=none guifg=#6b6b6b guibg=#eeeeee
+highlight LineNr     guifg=#787878 guibg=#eeeeec
 highlight NonText    gui=none guifg=#707070 guibg=#e7e7e7
-highlight SpecialKey gui=none guifg=#c0c0c0 guibg=bg      cterm=none       ctermfg=4
+highlight SpecialKey gui=none guifg=#f40f0f guibg=bg      cterm=none       ctermfg=4
 highlight Title      gui=bold guifg=#0033cc guibg=bg
 highlight Visual     gui=none guifg=#ffffff guibg=#43ace8 ctermfg=DarkCyan
-highlight LineNr     guifg=#787878 guibg=#eeeeec
 
 " Syntax group
 highlight Comment        gui=none guifg=#236e25 guibg=bg      ctermfg=2
