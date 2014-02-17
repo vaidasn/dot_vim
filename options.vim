@@ -4,6 +4,11 @@ elseif has("gui_win32")
     set guifont=Consolas:h11:cDEFAULT,Lucida_Console:h10:cDEFAULT
 endif
 if has("gui_running")
+    execute "set runtimepath+=" . expand("<sfile>:p:h") . "/.eclipse.vim"
+    colorscheme eclipse
+    unlet did_install_default_menus
+    source $VIMRUNTIME/menu.vim
+
     set showtabline=2
     "Open help in new tab
     an 9999.10 &Help.&Overview<Tab><F1>	:tab help<CR>
