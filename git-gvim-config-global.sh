@@ -2,6 +2,8 @@
 
 git config --global alias.vshow 'show --no-color'
 git config --global alias.vdiff 'diff --no-color'
+git config --global alias.vstatus '!cd "${GIT_PREFIX:-.}"; git status '`
+                                  `'| sed "s/^/# /" | gvim -c "set ft=gitcommit nomodified" -R -f -'
 git config --global alias.edit '!e() { s="$(git rev-parse --show-toplevel 2>/dev/null)"; [[ -z $s ]] && s=GVIM; '`
                                `'[[ -n $1 ]] && '`
                                `'{ cd "${GIT_PREFIX:-.}"; exec gvim -n --servername $s --remote-tab-silent "$@" & } || '`
