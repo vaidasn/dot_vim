@@ -61,6 +61,10 @@ vnoremap <S-Tab> <gv
 nnoremap <S-Tab> <<
 vnoremap <Tab> >gv
 nnoremap <Tab> >>
+" <Ctrl-Tab> re-indents line or selection
+inoremap <C-Tab> <C-O>==
+vnoremap <C-Tab> =
+noremap <C-Tab> ==
 " Use <Alt-.> and <Alt-,> for quick list (search result) navigation
 inoremap <M-,> <C-O>:cprevious<CR>
 noremap <M-,> :cprevious<CR>
@@ -88,6 +92,28 @@ noremap <M-Right> <C-I>
 inoremap <M-Right> <C-O><C-I>
 noremap <M-Left> <C-O>
 inoremap <M-Left> <C-O><C-O>
+" Smart Home key
+function! <SID>SmartHome(insert_mode)
+    let first_nonblank = match(getline('.'), '\S') + 1
+    if first_nonblank == 0
+        return col('.') + 1 >= col('$') ? '0' : '^'
+    endif
+    if col('.') == first_nonblank
+        return '0'  " if at first nonblank, go to start line
+    endif
+    if &wrap && wincol() > (&number ? len(line('$')) + 2 : 1)
+        let saved_winline = winline()
+        let save_cursor = getpos(".")
+        call setpos('.', [save_cursor[0], save_cursor[1], 1, save_cursor[3]])
+        let do_g0 = winline() != winline() ? 1 : 0
+        call setpos('.', save_cursor)
+        return do_g0 ? 'g0' : '^'
+    else
+        return a:insert_mode ? "h\<C-O>g^": 'hg^'
+    endif
+endfunction
+noremap <expr> <silent> <Home> <SID>SmartHome(0)
+inoremap <expr> <silent> <Home> "\<C-O>" . <SID>SmartHome(1)
 
 autocmd FileType gitcommit,gitrebase setlocal spell spelllang=en_us
 autocmd BufEnter COMMIT_EDITMSG,ADD_EDIT.patch,addp-hunk-edit.diff,git-rebase-todo call setpos('.', [0, 1, 1, 0])
