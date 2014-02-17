@@ -62,6 +62,13 @@ inoremap <M-,> <C-O>:cprevious<CR>
 noremap <M-,> :cprevious<CR>
 inoremap <M-.> <C-O>:cnext<CR>
 noremap <M-.> :cnext<CR>
+" Use <Ctrl-F>, <Ctrl-K>, and <F3> for searching
+inoremap <C-F> <C-O>/
+noremap <C-F> /
+inoremap <F3> <C-O>N
+noremap <F3> N
+inoremap <C-K> <C-O>*
+noremap <C-K> *
 
 autocmd FileType gitcommit,gitrebase setlocal spell spelllang=en_us
 autocmd BufEnter COMMIT_EDITMSG,ADD_EDIT.patch,addp-hunk-edit.diff,git-rebase-todo call setpos('.', [0, 1, 1, 0])
