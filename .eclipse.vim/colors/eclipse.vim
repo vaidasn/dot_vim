@@ -90,8 +90,10 @@ highlight javaAnnotation   gui=none guifg=#646464 guibg=bg
 highlight javaDocTags      gui=bold guifg=#7f9fbf guibg=bg      ctermfg=2
 highlight javaDocParam     gui=italic guifg=#3f5fbf guibg=bg      ctermfg=2
 highlight javaCommentTitle gui=italic guifg=#3f5fbf guibg=bg      ctermfg=2
+highlight link javaExternal    Statement
 highlight link javaTypedef     Statement
 highlight link javaConstant    Statement
+highlight link javaDocComment  SpecialComment
 highlight link javaDocSeeTag   SpecialComment
 highlight link javaLineComment Comment
 
