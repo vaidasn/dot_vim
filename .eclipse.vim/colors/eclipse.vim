@@ -36,6 +36,7 @@ highlight DiffText    gui=none guifg=red     guibg=#ffd0d0 cterm=bold    ctermbg
 highlight DiffChange  gui=none guifg=black   guibg=#ffe7e7 cterm=none    ctermbg=5  ctermfg=7
 highlight DiffDelete  gui=none guifg=bg   guibg=#e7e7ff ctermbg=black
 highlight DiffAdd     gui=none guifg=blue    guibg=#e7e7ff ctermbg=green cterm=bold
+highlight diffFile    gui=bold cterm=bold
 highlight diffAdded   gui=none guifg=black   guibg=#ddffdd ctermbg=green cterm=bold
 highlight diffRemoved gui=none guifg=black   guibg=#ffdddd ctermbg=black
 
