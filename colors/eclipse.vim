@@ -1,7 +1,7 @@
 " Vim color file
 " Maintainer:	Juan frias <juandfrias at gmail dot com>
 " Last Change:	2007 Feb 25
-" Version:	1.0.1
+" Version:	1.0.2git
 " URL:		http://www.axisym3.net/jdany/vim-the-editor/#eclipse
 set background=light
 highlight clear
@@ -11,11 +11,11 @@ endif
 
 let g:colors_name = "eclipse"
 
-highlight Normal gui=none guifg=#000000 guibg=#ffffff ctermfg=Gray
+highlight Normal gui=none guifg=#000000 guibg=#ffffff ctermfg=Black
 
 " Search
-highlight IncSearch gui=underline guifg=#404040 guibg=#e0e040
-highlight Search    gui=none      guifg=#544060 guibg=#f0c0ff ctermbg=1
+highlight IncSearch gui=underline guifg=NONE guibg=#e0e040
+highlight Search    gui=none      guifg=NONE guibg=#ceccf7 ctermbg=1
 
 " Messages
 highlight ErrorMsg   gui=none guifg=#f8f8f8 guibg=#4040ff
@@ -32,10 +32,12 @@ highlight VertSplit    gui=none guifg=#f8f8f8 guibg=#aea6a3 ctermfg=darkgrey cte
 highlight WildMenu     gui=none guifg=#201c1b guibg=#a0dcff
 
 " Diff
-highlight DiffText   gui=none guifg=red   guibg=#ffd0d0 cterm=bold    ctermbg=5  ctermfg=3
-highlight DiffChange gui=none guifg=black guibg=#ffe7e7 cterm=none    ctermbg=5  ctermfg=7
-highlight DiffDelete gui=none guifg=bg    guibg=#e7e7ff ctermbg=black
-highlight DiffAdd    gui=none guifg=blue  guibg=#e7e7ff ctermbg=green cterm=bold
+highlight DiffText    gui=none guifg=red     guibg=#ffd0d0 cterm=bold    ctermbg=5  ctermfg=3
+highlight DiffChange  gui=none guifg=black   guibg=#ffe7e7 cterm=none    ctermbg=5  ctermfg=7
+highlight DiffDelete  gui=none guifg=bg   guibg=#e7e7ff ctermbg=black
+highlight DiffAdd     gui=none guifg=blue    guibg=#e7e7ff ctermbg=green cterm=bold
+highlight diffAdded   gui=none guifg=black   guibg=#ddffdd ctermbg=green cterm=bold
+highlight diffRemoved gui=none guifg=black   guibg=#ffdddd ctermbg=black
 
 " Cursor
 " highlight Cursor   gui=none guifg=#ffffff guibg=#0080f0
@@ -59,21 +61,39 @@ highlight NonText    gui=none guifg=#707070 guibg=#e7e7e7
 highlight SpecialKey gui=none guifg=#c0c0c0 guibg=bg      cterm=none       ctermfg=4
 highlight Title      gui=bold guifg=#0033cc guibg=bg
 highlight Visual     gui=none guifg=#ffffff guibg=#43ace8 ctermfg=DarkCyan
+highlight LineNr     guifg=#787878 guibg=#eeeeec
 
 " Syntax group
-highlight Comment    gui=none guifg=#236e25 guibg=bg      ctermfg=2
-highlight Constant   gui=none guifg=#00884c guibg=bg      ctermfg=White
-highlight Error      gui=none guifg=#f8f8f8 guibg=#4040ff term=reverse        ctermbg=Red    ctermfg=White
-highlight Identifier gui=none guifg=#b07800 guibg=bg      ctermfg=Green
-highlight Ignore     gui=none guifg=bg      guibg=bg      ctermfg=black
-highlight PreProc    gui=none guifg=#683821 guibg=bg      ctermfg=Green
-highlight Special    gui=none guifg=#8040f0 guibg=bg      ctermfg=DarkMagenta
-highlight Statement  gui=none guifg=#b64f90 guibg=bg      ctermfg=White
-highlight Todo       gui=none guifg=#ff5050 guibg=white   term=standout       ctermbg=Yellow ctermfg=Black
-highlight Type       gui=bold guifg=#7f0055 guibg=bg      ctermfg=LightGreen
-highlight Underlined gui=none guifg=blue    guibg=bg
-highlight String     gui=none guifg=#8010a0 guibg=bg      ctermfg=Yellow
-highlight Number     gui=none guifg=#0000ff guibg=bg      ctermfg=White
+highlight Comment        gui=none guifg=#236e25 guibg=bg      ctermfg=2
+highlight Constant       gui=none guifg=#00884c guibg=bg      ctermfg=White
+highlight Error          gui=none guifg=fg guibg=#ffe6e7 term=none
+highlight Identifier     gui=none guifg=#464646 guibg=NONE      ctermfg=Green
+highlight Ignore         gui=none guifg=bg      guibg=bg      ctermfg=black
+highlight PreProc        gui=none guifg=#646464 guibg=bg      ctermfg=Green
+highlight Special        gui=none guifg=#8040f0 guibg=bg      ctermfg=DarkMagenta
+highlight SpecialComment gui=none guifg=#3f5fbf guibg=bg      ctermfg=2
+highlight Statement      gui=bold guifg=#7f0055 guibg=bg      ctermfg=White
+highlight MatchParen     gui=none guifg=NONE guibg=#d2eaff
+highlight Todo           gui=none guifg=#0080ff guibg=bg   term=standout       ctermbg=Blue ctermfg=Black
+highlight Type           gui=italic guifg=#0000c0 guibg=bg      ctermfg=LightGreen
+highlight Operator       guifg=fg
+highlight Preproc        gui=none guifg=#683821 guibg=bg      ctermfg=Green
+highlight Underlined     gui=none guifg=blue    guibg=bg
+highlight String         gui=none guifg=#2a00ff guibg=bg      ctermfg=Yellow
+highlight Number         gui=none guifg=#cd3200 guibg=bg      ctermfg=White
+
+highlight link StorageClass Statement
+highlight link Boolean Statement
+
+" Java Specifics
+highlight javaAnnotation   gui=none guifg=#646464 guibg=bg
+highlight javaDocTags      gui=bold guifg=#7f9fbf guibg=bg      ctermfg=2
+highlight javaDocParam     gui=italic guifg=#3f5fbf guibg=bg      ctermfg=2
+highlight javaCommentTitle gui=italic guifg=#3f5fbf guibg=bg      ctermfg=2
+highlight link javaTypedef     Statement
+highlight link javaConstant    Statement
+highlight link javaDocSeeTag   SpecialComment
+highlight link javaLineComment Comment
 
 if !has("gui_running")
     hi link Float          Number
