@@ -80,7 +80,7 @@ highlight Operator       guifg=fg
 highlight Preproc        gui=none guifg=#683821 guibg=bg      ctermfg=Green
 highlight Underlined     gui=none guifg=blue    guibg=bg
 highlight String         gui=none guifg=#2a00ff guibg=bg      ctermfg=Yellow
-highlight Number         gui=none guifg=#cd3200 guibg=bg      ctermfg=White
+highlight Number         gui=none guifg=#2d0b00 guibg=bg      ctermfg=White
 
 highlight link StorageClass Statement
 highlight link Boolean Statement
