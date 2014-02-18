@@ -93,6 +93,11 @@ noremap <M-Right> <C-I>
 inoremap <M-Right> <C-O><C-I>
 noremap <M-Left> <C-O>
 inoremap <M-Left> <C-O><C-O>
+" <MiddleMouse> pastes at mouse position
+noremap <MiddleMouse> <LeftMouse><MiddleMouse>
+inoremap <MiddleMouse> <LeftMouse><MiddleMouse>
+snoremap <MiddleMouse> <LeftMouse><MiddleMouse>
+xnoremap <MiddleMouse> <LeftMouse><MiddleMouse>
 
 autocmd FileType gitcommit,gitrebase setlocal spell spelllang=en_us
 autocmd BufEnter COMMIT_EDITMSG,ADD_EDIT.patch,addp-hunk-edit.diff,git-rebase-todo call setpos('.', [0, 1, 1, 0])
