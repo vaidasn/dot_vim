@@ -92,6 +92,7 @@ highlight javaDocParam     gui=italic guifg=#3f5fbf guibg=bg      ctermfg=2
 highlight javaCommentTitle gui=italic guifg=#3f5fbf guibg=bg      ctermfg=2
 highlight link javaExternal    Statement
 highlight link javaTypedef     Statement
+highlight link javaType        Statement
 highlight link javaConstant    Statement
 highlight link javaDocComment  SpecialComment
 highlight link javaDocSeeTag   SpecialComment
