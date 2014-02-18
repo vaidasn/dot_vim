@@ -33,6 +33,7 @@ set incsearch		" do incremental searching
 set hlsearch
 set mouse=a
 set wildmenu
+set showbreak=∞
 
 set tabstop=4       " The width of a TAB is set to 4.
                     " Still it is a \t. It is just that
@@ -154,3 +155,5 @@ autocmd InsertEnter * cal <SID>AfterInsertEnter()
 
 autocmd BufReadPost,BufNewFile * if !&ro | startinsert | endif
 "autocmd StdinReadPost * startinsert
+
+" vim: set fenc=utf-8 :
