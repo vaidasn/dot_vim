@@ -82,8 +82,8 @@ else
 endif
 inoremap <C-?> <C-O>/
 noremap <C-?> /
-inoremap <F3> <C-O>N
-noremap <F3> N
+inoremap <F3> <C-O>n
+noremap <F3> n
 inoremap <C-K> <C-O>*
 noremap <C-K> *
 " <Ctrl-Enter> jums to tag, <Alt-Right>/<Alt-Left> goes forwad/backward in the jump list
