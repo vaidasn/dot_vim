@@ -100,6 +100,7 @@ snoremap <MiddleMouse> <LeftMouse><MiddleMouse>
 xnoremap <MiddleMouse> <LeftMouse><MiddleMouse>
 
 autocmd FileType gitcommit,gitrebase setlocal spell spelllang=en_us
+autocmd FileType man setlocal tabstop=8
 autocmd BufEnter COMMIT_EDITMSG,ADD_EDIT.patch,addp-hunk-edit.diff,git-rebase-todo call setpos('.', [0, 1, 1, 0])
 autocmd FileType java setlocal number
 if has("gui_running")
