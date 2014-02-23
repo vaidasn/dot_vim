@@ -2,6 +2,11 @@
 " Heavily based on SmartHome script from
 " http://vim.wikia.com/wiki/Smart_home#More_features
 
+if exists("g:loaded_dot_vim_smart_home")
+  finish
+endif
+let g:loaded_dot_vim_smart_home = 1
+
 function! <SID>SmartHome(cmd_prefix)
     let first_nonblank = match(getline('.'), '\S') + 1
     if first_nonblank == 0

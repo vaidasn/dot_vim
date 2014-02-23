@@ -1,3 +1,8 @@
+if exists("g:loaded_dot_vim_screen_save_restore")
+  finish
+endif
+let g:loaded_dot_vim_screen_save_restore = 1
+
 if has("gui_running")
   function! ScreenFilename()
     if has('amiga')

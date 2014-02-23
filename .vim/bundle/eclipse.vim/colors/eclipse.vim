@@ -19,7 +19,7 @@ highlight Search    gui=none      guifg=NONE guibg=#ceccf7 ctermbg=1
 
 " Messages
 highlight ErrorMsg   gui=none guifg=#f8f8f8 guibg=#4040ff
-highlight WarningMsg gui=none guifg=#f8f8f8 guibg=#4040ff
+highlight WarningMsg gui=none guifg=#4040ff guibg=bg
 " highlight ModeMsg    gui=none guifg=#d06000 guibg=bg
 highlight ModeMsg    gui=none guifg=#9a8351 guibg=bg
 highlight MoreMsg    gui=none guifg=#0090a0 guibg=bg

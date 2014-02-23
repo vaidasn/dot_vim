@@ -1,3 +1,8 @@
+if exists("g:loaded_dot_vim_msysgit")
+  finish
+endif
+let g:loaded_dot_vim_msysgit = 1
+
 " Setting some decent VIM settings for programming
 
 set ai                          " set auto-indenting on for programming
