@@ -24,6 +24,7 @@ let g:NERDTreeMapHelp = "<F1>"
 let g:NERDChristmasTree = 1
 let g:NERDTreeShowBookmarks = 1
 let g:NERDTreeWinSize = 40
+let g:NERDTreeDirArrows = has("gui_running") ? 1 : 0
 let g:nerdtree_tabs_smart_startup_focus = 2
 " <F9> opens side file explorer
 inoremap <silent> <F9> <C-O>:NERDTreeTabsToggle<CR>
@@ -50,14 +51,11 @@ if has("gui_running")
     endif
 
     " unicode symbols
-    let g:airline_left_sep = '»'
-    let g:airline_left_sep = '▶'
-    let g:airline_right_sep = '«'
-    let g:airline_right_sep = '◀'
-    let g:airline_symbols.linenr = '¶'
-    let g:airline_symbols.branch = '⎇'
+    let g:airline_left_sep = '►'
+    let g:airline_right_sep = '◄'
+    let g:airline_symbols.linenr = '№'
+    let g:airline_symbols.branch = '⌂'
     let g:airline_symbols.paste = 'ρ'
-    let g:airline_symbols.paste = '∥'
     let g:airline_symbols.whitespace = 'Ξ'
     let g:airline_theme = "kolor"
 else
@@ -129,7 +127,7 @@ endif
 noremap <C-F6> <C-W>w
 inoremap <C-F6> <C-O><C-W>w
 " <Alt-:> goes to command line and <Alt-Shift-:> opens command-line window
-if has("gui_running")
+if has("gui_running") || has("win32") || has("win64")
     noremap » :
     noremap º q:
     inoremap » <C-O>:
@@ -160,7 +158,7 @@ noremap <M-,> :cprevious<CR>
 inoremap <M-.> <C-O>:cnext<CR>
 noremap <M-.> :cnext<CR>
 " Use <Ctrl-F>, <Ctrl-K>, and <F3> for searching
-if has("win32")  || has("win16") || has("gui_gtk")
+if exists(":promptfind")
     inoremap <C-F> <C-O>::promptfind<CR>
     noremap <C-F> :promptfind<CR>
     xnoremap <C-F> y:promptfind <C-R>=substitute(@", "[\r\n]", '\\n', 'g')<CR><CR>
@@ -170,7 +168,7 @@ else
     noremap <C-F> /
 endif
 " Use <Alt-Shift-/> for bottom line search
-if has("gui_running")
+if has("gui_running") || has("win32") || has("win64")
     inoremap ¿ <C-O>/
     noremap ¿ /
 else
