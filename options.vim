@@ -34,13 +34,6 @@ inoremap <silent> <C-F9> <Esc>:NERDTreeFind<CR>
 noremap <silent> <C-F9> :NERDTreeFind<CR>
 xnoremap <silent> <C-F9> <Esc>:NERDTreeFind<CR>
 snoremap <silent> <C-F9> <Esc>:stopinsert \| NERDTreeFind<CR>
-command! -nargs=1 -complete=file -bang Mksession
-            \   execute "NERDTreeTabsClose" |
-            \   try |
-            \   mksession<bang> <args> |
-            \   finally |
-            \   execute "NERDTreeTabsOpen" |
-            \   endtry
 autocmd FileType nerdtree nmap <buffer> <C-LeftMouse> <LeftMouse>t
 autocmd FileType nerdtree nmap <buffer> <M-LeftMouse> <LeftMouse>c
 
@@ -83,6 +76,7 @@ if has("gui_running")
     cnoremap <F1> <C-C>:tab help<CR>
 endif
 
+set sessionoptions=curdir,folds,tabpages
 set encoding=utf-8
 "set fileencoding=utf-8
 
