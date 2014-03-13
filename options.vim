@@ -201,7 +201,7 @@ autocmd FileType java setlocal number
 if has("gui_running")
     let g:sh_fold_enabled=1
     set foldlevelstart=99
-    autocmd FileType sh setlocal foldcolumn=1
+    autocmd FileType sh setlocal foldcolumn=2
 endif
 if has("autocmd") && exists("+omnifunc")
     autocmd Filetype *
